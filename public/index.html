@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Piper-Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="main.js"></script>
+</head>
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+  $(() => {
+    var socket = io();
+    $('form').submit(() => {
+      socket.emit('chat message', $('#m').val());
+      saveMessage($('#m').val());
+      newMessage();
+      $('#m').val('');
+      return false;
+    });
+    socket.on('chat message', (msg) => {
+      $('#messages').append($('<li>').text(msg));
+    });
+    socket.on('userList update', userList => {
+      $('#users').empty();
+      $('#users').append($('<li>').text('Users:').addClass('usersHeader'));
+      userList.forEach(user => {
+        $('#users').append($('<li>').text(user.username));
+      });
+    })
+  });
+</script>
+
+<body>
+  <div class="leftContainer">
+    <ul id="messages">
+        <li>message</li>
+        <li>message</li>
+    </ul>
+    <div class="serverMessages">
+      user is typing...
+    </div>
+    <form action="">
+      <input id="m" autocomplete="off" onkeyup="keyPressListener(event)" />
+      <button>Send</button>
+    </form>
+  </div>
+
+  <div class="rightContainer">
+    <ul id="users">
+      <li class="usersHeader">Users:</li>
+      <li>User 1</li>
+      <li>user 2</li>
+    </ul>
+  </div>
+</body>
+
+</html>

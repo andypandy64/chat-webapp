@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font: 1rem Helvetica, Arial;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 15%;
+}
+
+.leftContainer {
+    display: grid;
+    grid-template-rows: 1fr auto auto;
+    max-height: 100vh;
+    background: #ECEBE4;
+}
+
+#messages {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+}
+
+form {
+    display: flex;
+    margin: .5rem 2rem 2rem 2rem;
+    padding: .5rem;
+    border: 1px solid black;
+}
+
+#m {
+    flex-grow: 1;
+    border: none;
+    height: 2rem;
+    font-size: 1rem;
+    background: inherit;
+}
+
+#m:focus {
+    outline: none;
+}
+
+#users {
+    list-style: none;
+    padding: 1rem;
+}
+
+#users li {
+    margin-top: 1rem;
+    margin-left: 1rem;
+}
+
+.usersHeader {
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.serverMessages {
+    text-align: center;
+    margin-top: .5rem;
+}
+
+#messages li {
+    padding: 2rem;
+    border-bottom: 1px solid black;
+}
