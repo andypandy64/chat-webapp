@@ -9,27 +9,33 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 15%;
+    color: white;
 }
 
 .leftContainer {
     display: grid;
     grid-template-rows: 1fr auto auto;
     max-height: 100vh;
-    background: #ECEBE4;
+    background: #3A506B;
+}
+
+.rightContainer {
+    background: #253C56;
 }
 
 #messages {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin: 1rem;
     overflow: auto;
+    border-bottom: 1px solid #546881;
 }
 
 form {
     display: flex;
     margin: .5rem 2rem 2rem 2rem;
-    padding: .5rem;
-    border: 1px solid black;
+    padding: .5rem 1rem;
+    border-radius: 10px;
+    background: #546881;
 }
 
 #m {
@@ -38,6 +44,7 @@ form {
     height: 2rem;
     font-size: 1rem;
     background: inherit;
+    color: white !important;
 }
 
 #m:focus {
@@ -52,6 +59,7 @@ form {
 #users li {
     margin-top: 1rem;
     margin-left: 1rem;
+    font-weight: 600;
 }
 
 .usersHeader {
@@ -68,5 +76,5 @@ form {
 
 #messages li {
     padding: 2rem;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #546881;
 }
