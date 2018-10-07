@@ -56,7 +56,7 @@ io.on('connection', (socket) => {
         return '<img class="messageImage" src="' + word + '">';
       else if (isYoutubeUrl.test(word)) {
         let id = word.split("?v=")[1];
-        return '<iframe class="youtubeEmbed" src="http://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
+        return '<iframe class="youtubeEmbed" src="https://www.youtube.com/embed/' + id + '" frameborder="0" allowfullscreen></iframe>';
       }
       return linkifyHtml(word, {
         defaultProtocol: 'https'
