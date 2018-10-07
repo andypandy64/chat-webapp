@@ -38,8 +38,15 @@ io.on('connection', (socket) => {
     if (msg.charAt(0) == '/') {
       let command = msg.split(" ");
       if (command[0] == '/username') {
+        let serverMessage = user.username;
         user.username = command[1];
+        serverMessage += ' is now ' + user.username;
         sendUserList(socket);
+        io.emit('chat message', {
+          username: 'SERVER',
+          message: serverMessage,
+          color: 'yellow'
+        });
         return;
       } else if (command[0] == '/color') {
         user.color = command[1];
