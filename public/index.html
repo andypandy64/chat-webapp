@@ -16,12 +16,17 @@
   $(() => {
     var socket = io();
     $('form').submit(() => {
-      if ($('#m').val() == '') return;
       socket.emit('chat message', $('#m').val());
       saveMessage($('#m').val());
       $('#m').val('');
       return false;
     });
+
+    $('#m').on('keypress', (e) => {
+      if (e.which == 13) return;
+      socket.emit('user typing');
+    })
+
     socket.on('chat message', (msg) => {
       $('#messages').append($('<li>').append("<div class='message'><p class='messageUsername' style='color:" + msg.color + "'>" + msg.username + "</p>" + "<p class='messageText'>" + msg.message + "</p>"));
       newMessage();
@@ -33,6 +38,9 @@
         $('#users').append($('<li>').text(user.username));
       });
     })
+    socket.on('users typing', msg => {
+      $('.serverMessages').text(msg);
+    })
   });
 </script>
 
@@ -42,12 +50,13 @@
         <li>
           <div class="message">
             <p class="messageUsername" style="color:yellow">ADMIN</p>
+            <p class="messageText">Welcome to Piper Chat!</p>
             <p class="mmessageText">Commands: /username (username), /color (color)</p>
           </div>
         </li>
     </ul>
     <div class="serverMessages">
-      user is typing...
+      
     </div>
     <form action="">
       <input id="m" autocomplete="off" onkeyup="keyPressListener(event)" />
@@ -61,6 +70,7 @@
       <li>User 1</li>
       <li>user 2</li>
     </ul>
+    <img src="http://static.squarespace.com/static/531f2c4ee4b002f5b011bf00/t/536bdcefe4b03580f8f6bb16/1399577848961/hbosiliconvalleypiedpiperoldlogo" alt="" class="logo">
   </div>
 </body>
 
