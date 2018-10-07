@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Piper-Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src="main.js"></script>
 </head>
@@ -23,7 +23,7 @@
       return false;
     });
     socket.on('chat message', (msg) => {
-      $('#messages').append($('<li>').append("<div class='message'><p class='messageUsername'>" + msg.username + "</p>" + "<p class='messageText'>" + msg.message + "</p>"));
+      $('#messages').append($('<li>').append("<div class='message'><p class='messageUsername' style='color:" + msg.color + "'>" + msg.username + "</p>" + "<p class='messageText'>" + msg.message + "</p>"));
       newMessage();
     });
     socket.on('userList update', userList => {

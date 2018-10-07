@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   height: 100vh;
   display: grid;
   grid-template-columns: 1fr 15%;
@@ -59,14 +59,13 @@ form {
 #users li {
   margin-top: 1rem;
   margin-left: 1rem;
-  font-weight: 600;
 }
 
 .usersHeader {
   margin-top: 0 !important;
   margin-left: 0 !important;
-  font-weight: 700;
   text-transform: uppercase;
+  font-weight: 600;
 }
 
 .serverMessages {
@@ -85,7 +84,11 @@ form {
 
 .messageUsername {
   margin-bottom: .5rem;
-  font-weight: 700;
+  font-weight: 600;
+}
+
+.messageText {
+  font-size: .9rem;
 }
 
 button {
@@ -94,7 +97,6 @@ button {
   border: 1px solid #3A506B;
   border-radius: 10px;
   color: #3A506B;
-  font-weight: 900;
 }
 
 /* width */
