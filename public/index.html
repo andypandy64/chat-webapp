@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Piper-Chat</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
   <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
   <script src="main.js"></script>
 </head>
@@ -15,14 +16,15 @@
   $(() => {
     var socket = io();
     $('form').submit(() => {
+      if ($('#m').val() == '') return;
       socket.emit('chat message', $('#m').val());
       saveMessage($('#m').val());
-      newMessage();
       $('#m').val('');
       return false;
     });
     socket.on('chat message', (msg) => {
-      $('#messages').append($('<li>').text(msg));
+      $('#messages').append($('<li>').append("<div class='message'><p class='messageUsername'>" + msg.username + "</p>" + "<p class='messageText'>" + msg.message + "</p>"));
+      newMessage();
     });
     socket.on('userList update', userList => {
       $('#users').empty();
@@ -37,15 +39,25 @@
 <body>
   <div class="leftContainer">
     <ul id="messages">
-        <li>message</li>
-        <li>message</li>
+        <li>
+          <div class="message">
+            <p class="messageUsername">Username</p>
+            <p class="mmessageText">This is a message</p>
+          </div>
+        </li>
+        <li>
+          <div class="message">
+            <p class="messageUsername">Username</p>
+            <p class="mmessageText">This is a message</p>
+          </div>
+        </li>
     </ul>
     <div class="serverMessages">
       user is typing...
     </div>
     <form action="">
       <input id="m" autocomplete="off" onkeyup="keyPressListener(event)" />
-      <button>Send</button>
+      <button>></button>
     </form>
   </div>
 

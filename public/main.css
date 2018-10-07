@@ -1,80 +1,118 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font: 1rem Helvetica, Arial;
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 15%;
-    color: white;
+  font-family: 'Ubuntu', sans-serif;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 15%;
+  color: white;
 }
 
 .leftContainer {
-    display: grid;
-    grid-template-rows: 1fr auto auto;
-    max-height: 100vh;
-    background: #3A506B;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
+  max-height: 100vh;
+  background: #3A506B;
 }
 
 .rightContainer {
-    background: #253C56;
+  background: #253C56;
 }
 
 #messages {
-    list-style-type: none;
-    margin: 1rem;
-    overflow: auto;
-    border-bottom: 1px solid #546881;
+  list-style-type: none;
+  margin: .5rem 2rem .5rem 2rem;
+  overflow: auto;
+  border-bottom: 1px solid #546881;
 }
 
 form {
-    display: flex;
-    margin: .5rem 2rem 2rem 2rem;
-    padding: .5rem 1rem;
-    border-radius: 10px;
-    background: #546881;
+  display: flex;
+  margin: .5rem 2rem 2rem 2rem;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  background: #546881;
 }
 
 #m {
-    flex-grow: 1;
-    border: none;
-    height: 2rem;
-    font-size: 1rem;
-    background: inherit;
-    color: white !important;
+  flex-grow: 1;
+  border: none;
+  height: 2rem;
+  font-size: 1rem;
+  background: inherit;
+  color: white !important;
 }
 
 #m:focus {
-    outline: none;
+  outline: none;
 }
 
 #users {
-    list-style: none;
-    padding: 1rem;
+  list-style: none;
+  padding: 1rem;
 }
 
 #users li {
-    margin-top: 1rem;
-    margin-left: 1rem;
-    font-weight: 600;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  font-weight: 600;
 }
 
 .usersHeader {
-    margin-top: 0 !important;
-    margin-left: 0 !important;
-    font-weight: 700;
-    text-transform: uppercase;
+  margin-top: 0 !important;
+  margin-left: 0 !important;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .serverMessages {
-    text-align: center;
-    margin-top: .5rem;
+  text-align: center;
+  font-style: italic;
 }
 
 #messages li {
-    padding: 2rem;
-    border-bottom: 1px solid #546881;
+  padding: 0 2rem;
+  border-bottom: 1px solid #546881;
+}
+
+.message {
+  margin: 1rem 0;
+}
+
+.messageUsername {
+  margin-bottom: .5rem;
+  font-weight: 700;
+}
+
+button {
+  background: none;
+  padding: 5px 1rem;
+  border: 1px solid #3A506B;
+  border-radius: 10px;
+  color: #3A506B;
+  font-weight: 900;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }
