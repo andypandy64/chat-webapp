@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
+var linkify = require('linkifyjs');
+var linkifyHtml = require('linkifyjs/html');
+require('linkifyjs/plugins/hashtag')(linkify);
 
 app.use(express.static(__dirname + '/public'));
 
@@ -29,7 +32,9 @@ io.on('connection', (socket) => {
 
 io.on('connection', (socket) => {
     socket.on('chat message', (msg) => {
-      msg = "" + msg;
+      msg = linkifyHtml(msg, {
+        defaultProtocol: 'https'
+      });
       let command = msg.split(" ");
       if (command[0] == '/username')
       {

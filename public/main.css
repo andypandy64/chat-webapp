@@ -97,6 +97,10 @@ button {
   font-weight: 900;
 }
 
+a {
+  color: white;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;
